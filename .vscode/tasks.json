@@ -1,0 +1,99 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Menuconfig",
+            "type": "shell",
+            "command": "${env:IDF_PATH}\\tools\\idf.py",
+            "group": "build",
+            "args": [
+                "menuconfig"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "python",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "args": [
+                "${env:IDF_PATH}\\tools\\idf.py",
+                "build"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Flash",
+            "type": "shell",
+            "command": "python",
+            "group": "build",
+            "args": [
+                "${env:IDF_PATH}\\tools\\idf.py",
+                "-p",
+                "COM4",
+                "flash"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "python",
+            "group": "build",
+            "args": [
+                "${env:IDF_PATH}\\tools\\idf.py",
+                "clean"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Monitor",
+            "type": "shell",
+            "command": "idf.py",
+            "args": [
+                "-p",
+                "COM4",
+                "monitor"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash and Monitor",
+            "type": "shell",
+            "command": "idf.py",
+            "args": [
+                "flash",
+                "-p",
+                "COM4",
+                "monitor"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "openocd",
+            "type": "process",
+            "command": "openocd.exe",
+            "isBackground": true,
+            "args": [
+                "-s",
+                "${env:OPENOCD_SCRIPTS}",
+                "-f",
+                "interface/ftdi/esp32_devkitj_v1.cfg",
+                "-f",
+                "board/esp-wroom-32.cfg"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
