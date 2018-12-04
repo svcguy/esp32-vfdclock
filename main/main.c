@@ -1,6 +1,6 @@
 /* main.c
  *
- * Component of VFD Clock Project
+ * Template app main.c
  * 
  * Andy Josephson 12/2018
  */
