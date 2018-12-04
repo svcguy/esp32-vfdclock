@@ -37,7 +37,7 @@
             "args": [
                 "${env:IDF_PATH}\\tools\\idf.py",
                 "-p",
-                "COM4",
+                "COM9",
                 "flash"
             ],
             "problemMatcher": [
@@ -63,7 +63,7 @@
             "command": "idf.py",
             "args": [
                 "-p",
-                "COM4",
+                "COM9",
                 "monitor"
             ],
             "problemMatcher": []
@@ -73,9 +73,9 @@
             "type": "shell",
             "command": "idf.py",
             "args": [
-                "flash",
                 "-p",
-                "COM4",
+                "COM9",
+                "flash",
                 "monitor"
             ],
             "problemMatcher": []
